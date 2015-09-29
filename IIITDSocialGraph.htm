@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="IIITD Social Graph">
+	<meta name="author" content="bromil">
+
+	<title>IIITD Social Graph</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="css/owl.theme.css" rel="stylesheet">
+	<link href="css/owl.carousel.css" rel="stylesheet">
+	<link href="css/magnific-popup.css" rel="stylesheet">
+	<link href="css/simpletextrotator.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/graphstyle.css" rel="stylesheet" media="screen">	
+	<link href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet">
+	<style type="text/css"></style>
+	<style>
+
+	.node {
+	  stroke: #fff;
+	  stroke-width: 1.5px;
+	}
+
+	.link {
+	  stroke: #999;
+	  stroke-opacity: .6;
+	}
+
+	.label {
+	  pointer-events: none;
+	  font: 22px sans-serif;
+	  fill: white;
+	}
+
+	</style>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64091326-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body id="body"  style="background-image: url('./img/twinkle_twinkle.png');">
+	<div class="wrapper">
+		<div id="preloader" style="display: none;">
+			<div id="status" style="display: none;">
+				<div class="status-mes"><h4>Romil Bhardwaj</h4></div>
+			</div>
+		</div>
+		<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+			<div class="container">			
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="http://home.iiitd.edu.in/~romil11092">Romil Bhardwaj</a>
+				</div>			
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="#">IIITD Social Graph</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<section id="intro" class="section" style="position: relative; z-index: 0; padding: 0px 0px 0px 0px; background: none;">
+			<div id = "graphcontainer">
+			</div>
+		</section>
+		
+		<section class="callout" style="padding: 30px 0px 0px 0px;">
+		<div class="container">
+			<div class="col-md-9" style="padding: 0px 0px 40px 0px; visibility: visible; float: none; margin: 0 auto; text-align: center; vertical-align: middle;">
+				<h1>Batch of 2015, IIIT Delhi</h1>
+			</div>
+			<div class="row resume-items">
+
+					<div class="col-md-3" style="visibility: visible;">
+						<h3>What is this?</h3>
+					</div>
+
+					<div class="col-md-9 col-sm-8 resume-item" style="visibility: visible;">
+						<h4>An inferred social graph of the people in the Batch of 2015, IIIT Delhi.</h4>
+					</div>
+			</div>
+			<div class="row resume-items">
+
+					<div class="col-md-3" style="visibility: visible;">
+						<h3>The Idea</h3>
+					</div>
+
+					<div class="col-md-9 col-sm-8 resume-item" style="visibility: visible;">
+						<h4>When people get a photo clicked together, it can often be assumed that they share some social relation. This graph is derived from co-occurrence of individuals in batch farewell photographs. Thus, if you got a photo clicked with another person in the farewell, you and that person share a link in this graph. This idea is leveraged to improve face recognition in group photos by almost 13% in our paper titled <a href="https://research.iiitd.edu.in/groups/iab/PID3630807.pdf">"Harnessing Social Context for Improved Face Recognition"</a>, accepted at International Conference on Biometrics 2015.</h4>
+						<br>
+					</div>
+			</div>
+			<div class="row resume-items">
+
+					<div class="col-md-3" style="visibility: visible;">
+						<h3>The Graph</h3>
+					</div>
+
+					<div class="col-md-9 col-sm-8 resume-item" style="visibility: visible;">
+						<h4>Each node in this undirected graph represents an individual present in the farewell album. The colour of the node denotes the "community" the person belongs to, detected using <a href="http://arxiv.org/abs/0803.0476">Louvain Community detection</a>. Each link indicates a co-occurrence of two individuals in one or more photos, with the weight storing the number of photos co-occurred in. In this force-layout representation, each node repels each other and links are weak geometric constraints. Think of links like rubber bands - higher weights imply less elasticity and shorter length. </h4>
+						
+						<h4>The graph rendered here is dynamic. Use scroll wheel to zoom, hover over a node to see its immediate neighbours and drag a node to play with the physics.</h4>
+						<br>
+					</div>
+			</div>
+			
+			<div class="row resume-items">
+
+					<div class="col-md-3" style="visibility: visible;">
+						<h3>The Data</h3>
+					</div>
+
+					<div class="col-md-9 col-sm-8 resume-item" style="visibility: visible;">
+						<h4>I got the photos from Tasveer (<a href="https://www.facebook.com/tasveeriiitd">shameless plug</a>), imported them into Picasa and manually labelled all the faces to get the ground truth. After writing the face tags to XMP metadata, I read the tags into python, created the graph using NetworkX and ran Louvain Community detection with a resolution of 0.5 to get 12 communities. Used Gephi to analyze the data and exported the graph to JSON, which is then fed to D3.js and visualized here. </h4>
+						<p>If you are interested in doing more fancy stuff with the data, please feel free to do so. The data in JSON is available <a href="http://home.iiitd.edu.in/~romil11092/GraphWithModularity.json">here</a>.</p>
+						<br>
+						<hr class="hidden-xs">
+					</div>
+			</div>
+			
+		</div>
+		</section>
+		
+		<section id="stats" class="callout" style="padding: 10px 0px 50px 0px;">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-md-3 col-sm-12 hidden-xs" style="visibility: visible;">
+						<h3>Stats</h3>
+					</div>
+					
+					
+					<div class="col-md-3 col-sm-4" style="visibility: visible;">
+						<div class="stat">
+							<div class="stat-icon">
+								<h2><i class="fa fa-image hidden-xs"></i><span class="timer" data-to="2537">2537</span></h2>
+							</div>
+							<h3>Images</h3>
+						</div>
+					</div>
+
+					<div class="col-md-3 col-sm-4" style="visibility: visible;">
+						<div class="stat">
+							<div class="stat-icon">
+								<h2><i class="fa fa-user hidden-xs"></i><span class="timer" data-to="32">156</span></h2>
+							</div>
+							<h3>People</h3>
+						</div>
+					</div>
+					
+
+					<div class="col-md-3 col-sm-4" style="visibility: visible;">
+						<div class="stat">
+							<div class="stat-icon">
+								<h2><i class="fa fa-share-alt hidden-xs"></i><span class="timer" data-to="2234">2234</span></h2>
+							</div>
+							<h3>Edges</h3>
+						</div>
+					</div>
+				</div><!-- .row -->
+
+			</div><!-- .container -->
+
+		</section>
+		
+	</div>
+
+		<footer id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="copy" color="grey">
+							Made by <a href="http://home.iiitd.edu.in/~romil11092">Romil Bhardwaj</a>, with love, for BTech 2011. Using Python, Py-XMP-Toolkit, NetworkX, FaceVACS, Gephi, D3.js and Bootstrap. 
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.simple-text-rotator.min.js"></script>
+	<script src="js/jquery.waypoints.js"></script>
+	<script src="js/jquery.countTo.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/smoothscroll.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+	<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"> </script>
+	<script src="js/IIITDGraph.js"></script>
+</body></html>
